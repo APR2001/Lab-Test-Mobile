@@ -27,28 +27,12 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
 
-        // Initialize views and sensors
         textView = findViewById(R.id.textView);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-        
-        // For testing purposes, let's simulate high temperature
-        if (sensor == null) {
-            // If no temperature sensor, create a test value
-            textView.setText("Temperature: 75°C (Test Mode)");
-            // Simulate high temperature
-            new Thread(() -> {
-                try {
-                    Thread.sleep(2000);  // Wait 2 seconds
-                    onSensorChanged(new float[]{75f});  // Simulate 75 degrees
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-        }
+
     }
 
-    // Helper method for testing
     private void onSensorChanged(float[] values) {
         float currentTemp = values[0];
         runOnUiThread(() -> {
