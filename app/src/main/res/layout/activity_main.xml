@@ -11,6 +11,7 @@
         android:id="@+id/imageViewBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/todo1"
         android:scaleType="centerCrop"
         android:src="@drawable/backgroundimage"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,6 +24,7 @@
         android:layout_width="160dp"
         android:layout_height="166dp"
         android:layout_marginTop="64dp"
+        android:contentDescription="@string/todo"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,17 +53,19 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
+        android:autofillHints=""
         android:background="@drawable/edit_text_background"
         android:hint="@string/username"
         android:inputType="text"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#80FFFFFF"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -70,16 +74,18 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:autofillHints=""
         android:background="@drawable/edit_text_background"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:textColor="#FFFFFF"
-        android:textColorHint="#80FFFFFF"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextUsername" />
+        app:layout_constraintTop_toBottomOf="@id/editTextUsername"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -88,14 +94,16 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/login"
-        android:textSize="16sp"
-        android:textAllCaps="false"
         android:backgroundTint="#2196F3"
         android:elevation="4dp"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        android:textSize="16sp"
         app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
+        tools:ignore="VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

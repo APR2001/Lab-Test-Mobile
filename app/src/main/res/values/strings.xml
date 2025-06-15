@@ -8,4 +8,6 @@
     <string name="enter_location">Enter Location</string>
     <string name="show_location">Show Location</string>
     <string name="waiting_for_temperature_readings">Waiting for temperature readings...</string>
+    <string name="todo">TODO</string>
+    <string name="todo1">TODO</string>
 </resources>
