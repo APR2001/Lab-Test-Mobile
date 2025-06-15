@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Akalanka</string>
-    <string name="MAPS_API_KEY">AIzaSyDX6z2rQ5ZQSWnl_BNNPjiLF0OJQOljha4</string>
     <string name="username">Username</string>
     <string name="s23010270">s23010270</string>
     <string name="password">Password</string>
