@@ -9,9 +9,10 @@ import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import org.w3c.dom.ls.LSException;
+
 
 import java.util.List;
 
@@ -31,7 +32,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     private GoogleMap myMap;
     private EditText locationEditText;
-    private Button showLocationButton;
     private SensorManager sensorManager;
     private Sensor tempSensor;
 
@@ -45,24 +45,20 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
 
         locationEditText = findViewById(R.id.editTextLocation);
-        showLocationButton = findViewById(R.id.buttonShowLocation);
+        Button showLocationButton = findViewById(R.id.buttonShowLocation);
 
-        showLocationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String location = locationEditText.getText().toString();
-                if (!location.isEmpty()) {
-                    searchLocation(location);
-                }
+        showLocationButton.setOnClickListener(view -> {
+            String location = locationEditText.getText().toString();
+            if (!location.isEmpty()) {
+                searchLocation(location);
             }
         });
-    }
-
-    private void searchLocation(String location) {
+    }    private void searchLocation(String location) {
         try {
             Geocoder geocoder = new Geocoder(MapActivity.this);
             List<Address> addressList = geocoder.getFromLocationName(location, 1);
@@ -74,7 +70,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("MapActivity", "Error searching for location: " + location, e);
+            Toast.makeText(this, "Could not find location", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -100,7 +97,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Not needed
+
     }
 
     @Override
@@ -117,3 +114,4 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         sensorManager.unregisterListener(this);
     }
 }
+

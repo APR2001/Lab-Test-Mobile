@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:padding="16dp"
-        android:text="Waiting for temperature readings..."
+        android:text="@string/waiting_for_temperature_readings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

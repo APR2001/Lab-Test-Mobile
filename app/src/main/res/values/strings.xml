@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Akalanka</string>
     <string name="MAPS_API_KEY">AIzaSyDX6z2rQ5ZQSWnl_BNNPjiLF0OJQOljha4</string>
+    <string name="username">Username</string>
+    <string name="s23010270">s23010270</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="enter_location">Enter Location</string>
+    <string name="show_location">Show Location</string>
+    <string name="waiting_for_temperature_readings">Waiting for temperature readings...</string>
 </resources>
